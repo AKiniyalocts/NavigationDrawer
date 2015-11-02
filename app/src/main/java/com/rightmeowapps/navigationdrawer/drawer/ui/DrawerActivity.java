@@ -43,7 +43,9 @@ public abstract class DrawerActivity extends ToolbarActivity {
     }
 
   @Override protected void onSaveInstanceState(Bundle outState) {
-    outState.putInt(ADAPTER_POSITION, mDrawerAdapter.getSelectedItemPosition());
+      if(mDrawerAdapter != null) {
+          outState.putInt(ADAPTER_POSITION, mDrawerAdapter.getSelectedItemPosition());
+      }
   }
 
   @Override

@@ -89,6 +89,13 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+    public boolean hasItem(DrawerItem drawerItem){
+        if(mItems != null){
+            return mItems.contains(drawerItem);
+        }
+        return false;
+    }
+
     public void addItem(DrawerItem item){
         if(item.isHeader()){
             addHeader(item);

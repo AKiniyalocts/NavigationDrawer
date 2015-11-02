@@ -74,6 +74,11 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         mHeaderListener = drawerHeaderListener;
     }
 
+    public void clearItems(){
+        mItems.clear();
+        notifyDataSetChanged();
+    }
+
     public void addItem(int pos, DrawerItem item){
         if(item.isHeader()){
            addHeader(item);
@@ -179,7 +184,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private int getAccentColor() {
       TypedValue typedValue = new TypedValue();
 
-      TypedArray a = context.obtainStyledAttributes(typedValue.data, new int[] { R.attr.colorAccent });
+      TypedArray a = context.obtainStyledAttributes(typedValue.data, new int[] { R.attr.colorPrimary });
       int color = a.getColor(0, 0);
 
       a.recycle();
